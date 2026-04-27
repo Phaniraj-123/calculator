@@ -29,6 +29,5 @@ coverage
 # Ignore Mac system files
 /build
 /dist
-/public
 /README.md
 LICENSE
