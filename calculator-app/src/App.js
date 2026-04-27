@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { evaluate } from "mathjs";
 import "./App.css";
 
 function App() {
@@ -15,8 +16,7 @@ function App() {
 
   const calculate = () => {
     try {
-      // safer than raw eval for basic usage
-      const result = Function(`return ${value}`)();
+      const result = evaluate(value);
       setValue(result.toString());
     } catch {
       setValue("Error");
@@ -54,7 +54,7 @@ function App() {
   return (
     <div className={`container ${theme}`}>
       <div className="calculator">
-        
+
         {/* Top Controls */}
         <div className="top-bar">
           <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
